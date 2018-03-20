@@ -1,0 +1,6 @@
+{
+    "require": {
+        "pre/plugin": "dev-feature/expressions@dev",
+        "pre/async": "dev-feature/expressions@dev"
+    }
+}

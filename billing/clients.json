@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Kimberly J. Fink",
+        "address": "2589 Bridge Avenue, Scott, LA 70583",
+        "birthday": "July 18, 1973",
+        "deceased": false,
+        "balance": -100
+    },
+    {
+        "name": "Barbara C. Kerfoot",
+        "address": "4487 Robinson Lane, Gallipolis, OH 45631",
+        "birthday": "March 21, 1981",
+        "deceased": true,
+        "balance": -120
+    },
+    {
+        "name": "Terence T. Brown",
+        "address": "3189 Stoneybrook Road, Cocoa, FL 32922",
+        "birthday": "June 29, 1962",
+        "deceased": false,
+        "balance": 0
+    }
+]

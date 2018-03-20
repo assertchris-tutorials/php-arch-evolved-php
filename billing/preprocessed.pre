@@ -1,0 +1,75 @@
+<?php
+
+macro ·recursion {
+    ·chain(
+        ·token(T_VARIABLE)·argName,
+        ·buffer("⇒"),
+        ·token("{"),
+        ·layer()·body,
+        ·token("}"),
+        ·_()·scope
+    )
+} >> function($ast) {
+    $scoped = [];
+    $defined = (string) $ast->{"·argName"};
+
+    $scope = new \Yay\Ast("·scope");
+
+    foreach ($ast->{"* ·body"}->tokens() as $token) {
+        $text = (string) $token;
+
+        if (
+            $token->is(T_VARIABLE) &&
+            ('$this' !== $text) &&
+            !in_array($text, $scoped) &&
+            $text !== $defined
+        ) {
+            $scope->push(new \Yay\Ast("·var", $token));
+            array_push($scoped, $text);
+        }
+    }
+
+    $ast->append($scope);
+} >> {··trim(
+    ·scope ?·{
+        function (·argName) use (··trim(·scope ···(, ) {&·var})) {
+            ··trim(·body)
+        }
+    }
+
+    ·scope !·{
+        function (·argName) {
+            ··trim(·body)
+        }
+    }
+)}
+
+// ...get the client data
+
+$clients = json_decode(
+    file_get_contents(__DIR__ . "/clients.json")
+);
+
+// ...get all of the clients that must be billed
+
+$billable = array_filter($clients, $client ⇒ {
+    return $client->deceased !== true && $client->balance < 0;
+});
+
+// ...get only the fields we want to send in email
+
+$excludedFields = ["deceased"];
+
+$mapped = array_map($client ⇒ {
+    $clone = clone $client;
+
+    foreach ($excludedFields as $field) {
+        unset($clone->$field);
+    }
+    
+    return $clone;
+}, $billable);
+
+// ...send emails to everyone in $mapped
+
+return [$billable, $mapped];

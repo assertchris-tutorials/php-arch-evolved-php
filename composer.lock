@@ -1,0 +1,106 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "1aed3cd97b1a1921c6bbb6ca3da587c0",
+    "packages": [
+        {
+            "name": "pre/async",
+            "version": "dev-feature/expressions",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/preprocess/pre-async.git",
+                "reference": "129c557761dd05fdfe7e268e449219de93708383"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/preprocess/pre-async/zipball/129c557761dd05fdfe7e268e449219de93708383",
+                "reference": "129c557761dd05fdfe7e268e449219de93708383",
+                "shasum": ""
+            },
+            "require": {
+                "pre/plugin": "dev-feature/expressions"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0|^6.0"
+            },
+            "bin": [
+                "bin/pre-aerys"
+            ],
+            "type": "pre-macro",
+            "extra": {
+                "macros": [
+                    "source/macros.yay"
+                ]
+            },
+            "autoload": {
+                "files": [
+                    "source/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2018-02-20T07:07:39+00:00"
+        },
+        {
+            "name": "pre/plugin",
+            "version": "dev-feature/expressions",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/preprocess/pre-plugin.git",
+                "reference": "3c3e49e068c62cd5cc41f142f874e9d85dc51334"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/preprocess/pre-plugin/zipball/3c3e49e068c62cd5cc41f142f874e9d85dc51334",
+                "reference": "3c3e49e068c62cd5cc41f142f874e9d85dc51334",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1"
+            },
+            "require-dev": {
+                "composer/composer": "^1.3",
+                "phpunit/phpunit": "^5.0|^6.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": [
+                    "Pre\\Plugin\\Composer\\Plugin"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pre\\Plugin\\": "source"
+                },
+                "files": [
+                    "source/environment.php",
+                    "source/expanders.php",
+                    "source/functions.php",
+                    "source/autoload.php",
+                    "source/macros.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2018-02-20T06:47:27+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "pre/plugin": 20,
+        "pre/async": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
